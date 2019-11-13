@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import HomeHeader from './components/Header'
+import HomeHeader from './components/header'
 export default {
     name: 'Home',
     components: {
-        HomeHeader
+       HomeHeader
     }
 }
 </script>

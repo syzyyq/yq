@@ -1,3 +1,5 @@
+npm install vue-awesome-swiper@2.6.7 --save
+npm install vue-awesome-swiper@2.6.7 --save
 <template>
     <div class="wrapper">
       <swiper :options="swiperOption" >

@@ -5,7 +5,8 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            
+            <div class="button">{{this.$store.state.city}}</div>
           </div>
         </div>
       </div>
@@ -14,7 +15,9 @@
         <div class="button-list">
           <div class="button-wrapper"
               v-for="item of hot"
-              :key="item.id">
+              :key="item.id"
+              @click='handleCityClick(item.name)'
+            >
             <div class="button">{{item.name}}</div>
           </div>
         </div>
@@ -29,6 +32,7 @@
           <div class="item border-bottom"
           v-for="innerItem of item"
           :key="innerItem.id"
+          @click='handleCityClick(innerItem.name)'
           >
           {{innerItem.name}}
           </div>
@@ -48,8 +52,18 @@ export default {
     cities: Object,
     letter: String
   },
+   methods:{
+    // handleCityClick函数实现的时点击城市时将获取的城市通过dispatch方法传递给Actions下的changeCity方法
+  //  添加路由跳转到首页
+   handleCityClick (city) {
+      this.$store.dispatch('changeCity',city)
+      // 通过路由来实现页面跳转
+      this.$router.push('/')
+      // 、alert(city)
+    }
+   },
   mounted() {
-    this.scroll = new Bscroll(this.$refs.wrapper)
+    this.scroll = new Bscroll(this.$refs.wrapper,{click: true})
   },
   watch: {
     letter () {

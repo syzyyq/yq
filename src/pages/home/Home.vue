@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import HomeHeader from './components/header'
+import HomeHeader from './components/Header'
 import HomeSwiper from './components/Swiper'
 import HomeIcons from './components/Icons'
 import HomeHot from './components/Hot'
@@ -29,7 +29,7 @@ export default {
     },
     data () {
        return {
-          city:'',
+          //city:'',
           swiperList: [],
           iconList: [],
           hontList: [],
@@ -45,7 +45,7 @@ export default {
           res = res.data
           if(res.ret && res.data){
              const data = res.data
-             this.city = data.city
+             //this.city = data.city
              this.swiperList = data.swiperList
              this.iconList = data.iconList
              this.hotList = data.hotList
